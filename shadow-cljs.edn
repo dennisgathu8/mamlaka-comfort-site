@@ -5,5 +5,5 @@
                 :asset-path "js/compiled"
                 :modules {:main {:init-fn mamlaka-comfort.app/init}}
                 :devtools {:after-load mamlaka-comfort.app/reload}
-                :compiler-options {:optimizations :none
+                :compiler-options {:optimizations :advanced
                                   :source-map true}}}}
