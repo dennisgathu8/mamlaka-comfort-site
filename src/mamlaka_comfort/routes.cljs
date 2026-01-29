@@ -32,7 +32,7 @@
   (rfe/start!
    (rf-router/router routes {:data {:coercion rss/coercion}})
    (fn [m] (rf/dispatch [:set-route m]))
-   {:use-fragment false}))
+   {:use-fragment true}))
 
 (rf/reg-event-db
  :set-route
