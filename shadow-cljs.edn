@@ -4,7 +4,7 @@
                 [reitit "0.5.18"]]
  :builds {:app {:target :browser
                 :output-dir "resources/public/js/compiled"
-                :asset-path "/js/compiled"
+                :asset-path "js/compiled"
                 :modules {:main {:init-fn mamlaka_comfort.app/init}}
                 :devtools {:after-load mamlaka_comfort.app/reload}
                 :compiler-options {:optimizations :none
