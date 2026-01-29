@@ -23,9 +23,9 @@
 (defn category-card [name img]
   [:a.group.relative.h-64.overflow-hidden.rounded-lg.card-shadow
    {:href "#catalog"}
-   [:img.w-full.h-full.object-cover.group-hover:scale-105.transition-transform.duration-500
-    {:src img :alt name}]
-   [:div.absolute.inset-0.bg-black.bg-opacity-20.group-hover:bg-opacity-40.transition-all]
+   [:img {:class "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          :src img :alt name}]
+   [:div {:class "absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"}]
    [:div.absolute.bottom-6.left-6
     [:h3.text-2xl.font-bold.text-white name]
     [:span.text-white.text-sm.underline "Explore Now"]]])
