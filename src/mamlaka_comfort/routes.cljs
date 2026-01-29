@@ -33,7 +33,6 @@
  (fn [db [_ m]]
    (let [page (get-in m [:data :name])
          id (get-in m [:path-params :id])]
-     (js/console.log "Route changed to:" (str page) "with params:" (str id))
      (cond-> (assoc db :current-route m)
        page (assoc :active-page page)
        id (assoc :active-product-id id)))))

@@ -15,7 +15,6 @@
 (rf/reg-event-fx
  :fetch-products
  (fn [{:keys [db]} _]
-   (js/console.log "Fetching products from relative path...")
    {:http-xhrio {:method          :get
                  :uri             "data/products.edn"
                  :response-format (ajax.edn-response-format)
@@ -41,10 +40,7 @@
   (rdom/render [views/main-view] (.getElementById js/document "app")))
 
 (defn init []
-  (js/console.log "Mamlaka Comfort App Initializing...")
   (rf/dispatch-sync [:initialize-db])
   (routes/init-routes!)
   (rf/dispatch [:fetch-products])
-  (js/console.log "Routes initialized, rendering view...")
-  (reload)
-  (js/console.log "Initial render complete."))
+  (reload))
