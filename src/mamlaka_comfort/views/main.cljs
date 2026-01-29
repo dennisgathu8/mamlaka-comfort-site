@@ -17,10 +17,10 @@
        [:span.font-black.text-2xl.text-mf-blue "MaMlaka"]
        [:span.bg-mf-red.text-white.text-xs.px-1.rounded "Comfort"]]
       
-      [:div {:class "hidden md:flex gap-8 font-semibold text-gray-700"}
-       (for [{:keys [name route]} nav-links]
-         ^{:key name}
-         [:a {:class "hover:text-mf-blue" :href (str "#/" (clojure.core/name route))} name])]
+       [:div {:class "hidden md:flex gap-8 font-semibold text-gray-700"}
+        (for [{label :name route :route} nav-links]
+          ^{:key label}
+          [:a {:class "hover:text-mf-blue" :href (str "#/" (cljs.core/name route))} label])]
       
       [:div.flex.items-center.gap-4
        [:a {:class "bg-mf-red text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all"
@@ -56,10 +56,16 @@
     [:div.min-h-screen.flex.flex-col
      [header]
      [:main.flex-grow
-      (case active-page
-        :home [home/view]
-        :catalog [catalog/view]
-        :product-detail [product/view]
-        :contact [contact/view]
-        [:div "Page not found"])]
+      (try
+        (case active-page
+          :home [home/view]
+          :catalog [catalog/view]
+          :product-detail [product/view]
+          :contact [contact/view]
+          [:div "Page not found"])
+        (catch :default e
+          (js/console.error "Error rendering page:" e)
+          [:div.container.mx-auto.px-4.py-20.text-center
+           [:h2.text-2xl.font-bold.text-mf-blue "Something went wrong"]
+           [:p.text-gray-600.mt-2 "Please try refreshing the page."]]))]
      [footer]]))
