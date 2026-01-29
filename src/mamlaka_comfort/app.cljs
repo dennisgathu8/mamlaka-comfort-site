@@ -3,7 +3,7 @@
             [re-frame.core :as rf]
             [mamlaka-comfort.routes :as routes]
             [mamlaka-comfort.views.main :as views]
-            [ajax.core :refer [GET]]))
+            [ajax.core :as ajax :refer [GET]]))
 
 (rf/reg-event-db
  :initialize-db
