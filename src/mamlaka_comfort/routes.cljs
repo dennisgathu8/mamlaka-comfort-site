@@ -6,17 +6,11 @@
 
 (def routes
   ["/"
-   ["" {:name :home
-        :controllers [{:start (fn [_] (rf/dispatch [:set-active-page :home]))}]}]
-   ["catalog" {:name :catalog
-               :controllers [{:start (fn [_] (rf/dispatch [:set-active-page :catalog]))}]}]
+   ["" {:name :home}]
+   ["catalog" {:name :catalog}]
    ["product/:id" {:name :product-detail
-                   :parameters {:path {:id string?}}
-                   :controllers [{:start (fn [params] 
-                                           (rf/dispatch [:set-active-page :product-detail])
-                                           (rf/dispatch [:set-active-product (get-in params [:path :id])]))}]}]
-   ["contact" {:name :contact
-               :controllers [{:start (fn [_] (rf/dispatch [:set-active-page :contact]))}]}]])
+                   :parameters {:path {:id string?}}}]
+   ["contact" {:name :contact}]])
 
 (rf/reg-event-db
  :set-active-page
@@ -37,4 +31,9 @@
 (rf/reg-event-db
  :set-route
  (fn [db [_ m]]
-   (assoc db :current-route m)))
+   (let [page (get-in m [:data :name])
+         id (get-in m [:path-params :id])]
+     (js/console.log "Route changed to:" (str page) "with params:" (str id))
+     (cond-> (assoc db :current-route m)
+       page (assoc :active-page page)
+       id (assoc :active-product-id id)))))

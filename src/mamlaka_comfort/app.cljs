@@ -44,6 +44,7 @@
   (js/console.log "Mamlaka Comfort App Initializing...")
   (rf/dispatch-sync [:initialize-db])
   (routes/init-routes!)
+  (rf/dispatch [:fetch-products])
   (js/console.log "Routes initialized, rendering view...")
   (reload)
   (js/console.log "Initial render complete."))
