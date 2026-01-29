@@ -29,11 +29,11 @@
 
 (defn view []
   [:section.container.mx-auto.px-4.py-16
-   [:div.flex.flex-col.lg:flex-row.gap-16
-    [:div.lg:w-1/2
+   [:div {:class "flex flex-col lg:flex-row gap-16"}
+    [:div {:class "lg:w-1/2"}
      [contact-info]]
     
-    [:div.lg:w-1/2
+    [:div {:class "lg:w-1/2"}
      [:div.h-96.bg-gray-100.rounded-xl.shadow-inner.flex.items-center.justify-center.border-2.border-dashed.border-gray-300
       [:div.text-center
        [:span.text-4xl "🗺️"]
