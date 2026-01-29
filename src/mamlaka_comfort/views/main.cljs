@@ -20,7 +20,7 @@
       [:div {:class "hidden md:flex gap-8 font-semibold text-gray-700"}
        (for [{:keys [name route]} nav-links]
          ^{:key name}
-         [:a {:class "hover:text-mf-blue" :href (str "#" (clojure.core/name route))} name])]
+         [:a {:class "hover:text-mf-blue" :href (str "#/" (clojure.core/name route))} name])]
       
       [:div.flex.items-center.gap-4
        [:a {:class "bg-mf-red text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all"
@@ -35,9 +35,9 @@
     [:div
      [:h3.text-xl.font-bold.mb-4 "Quick Links"]
      [:ul.space-y-2.text-gray-400
-      [:li [:a {:href "#home"} "Home"]]
-      [:li [:a {:href "#catalog"} "Shop Beddings"]]
-      [:li [:a {:href "#contact"} "Visit Us"]]]]
+      [:li [:a {:href "#/"} "Home"]]
+      [:li [:a {:href "#/catalog"} "Shop Beddings"]]
+      [:li [:a {:href "#/contact"} "Visit Us"]]]]
     [:div
      [:h3.text-xl.font-bold.mb-4 "Our Shop"]
      [:p.text-gray-400 "Kamae Road, Kahawa West"]

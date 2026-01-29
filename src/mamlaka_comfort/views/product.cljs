@@ -61,7 +61,7 @@
        
        [:div {:class "lg:w-1/2"}
          [:nav.text-sm.text-gray-500.mb-4
-          [:a {:href "#catalog"} "Catalog"] " / " (:category product)]
+          [:a {:href "#/catalog"} "Catalog"] " / " (:category product)]
          [:h1.text-4xl.font-black.text-mf-blue.mb-2 (:name product)]
          [:div.flex.items-center.gap-2.mb-6
           [:span.bg-mf-red.text-white.text-xs.font-bold.px-2.py-1.rounded "Featured"]

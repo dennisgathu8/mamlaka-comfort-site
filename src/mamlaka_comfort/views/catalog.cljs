@@ -17,7 +17,7 @@
      [:span.text-sm.text-gray-500 "From"]
      [:div.text-2xl.font-black.text-gray-900 (first (clojure.string/split price-range #" - "))]]
     [:div.mt-6.grid.grid-cols-2.gap-4
-     [:a.btn-primary.text-sm.text-center.py-2 {:href (str "#product/" id)} "Details"]
+     [:a.btn-primary.text-sm.text-center.py-2 {:href (str "#/product/" id)} "Details"]
      [:button {:class "bg-green-600 text-white text-sm font-bold py-2 rounded hover:bg-green-700"
                :on-click #(js/window.open (str "https://wa.me/254700000000?text=I'm interested in " name))} "Inquire"]]]])
 
