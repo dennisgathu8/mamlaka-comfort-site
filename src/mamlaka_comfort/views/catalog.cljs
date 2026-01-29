@@ -18,8 +18,8 @@
      [:div.text-2xl.font-black.text-gray-900 (first (clojure.string/split price-range #" - "))]]
     [:div.mt-6.grid.grid-cols-2.gap-4
      [:a.btn-primary.text-sm.text-center.py-2 {:href (str "#product/" id)} "Details"]
-     [:button.bg-green-600.text-white.text-sm.font-bold.py-2.rounded.hover:bg-green-700
-      {:on-click #(js/window.open (str "https://wa.me/254700000000?text=I'm interested in " name))} "Inquire"]]]])
+     [:button {:class "bg-green-600 text-white text-sm font-bold py-2 rounded hover:bg-green-700"
+               :on-click #(js/window.open (str "https://wa.me/254700000000?text=I'm interested in " name))} "Inquire"]]]])
 
 (defn view []
   (let [products @(rf/subscribe [:products])
@@ -43,7 +43,7 @@
      
      (if loading?
        [:div.text-center.py-20 "Loading products..."]
-       [:div.grid.grid-cols-1.sm:grid-cols-2.lg:grid-cols-3.xl:grid-cols-4.gap-8
+       [:div {:class "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"}
         (for [p products]
           ^{:key (:id p)}
           [product-card p])])]))

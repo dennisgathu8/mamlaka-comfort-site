@@ -53,13 +53,13 @@
     (if-not product
       [:div.text-center.py-20 "Product not found."]
       [:section.container.mx-auto.px-4.py-12
-       [:div.flex.flex-col.lg:flex-row.gap-16
-        [:div.lg:w-1/2
-         [:img.w-full.rounded-xl.shadow-lg {:src (:image product) :alt (:name product)}]
-         [:div.grid.grid-cols-4.gap-4.mt-4
-          (repeat 4 [:div.h-24.bg-gray-100.rounded.cursor-pointer])]]
-        
-        [:div.lg:w-1/2
+      [:div {:class "flex flex-col lg:flex-row gap-16"}
+       [:div {:class "lg:w-1/2"}
+        [:img.w-full.rounded-xl.shadow-lg {:src (:image product) :alt (:name product)}]
+        [:div.grid.grid-cols-4.gap-4.mt-4
+         (repeat 4 [:div.h-24.bg-gray-100.rounded.cursor-pointer])]]
+       
+       [:div {:class "lg:w-1/2"}
          [:nav.text-sm.text-gray-500.mb-4
           [:a {:href "#catalog"} "Catalog"] " / " (:category product)]
          [:h1.text-4xl.font-black.text-mf-blue.mb-2 (:name product)]
@@ -74,7 +74,7 @@
           [:div.flex.gap-3
            (for [sz (:sizes product)]
              ^{:key sz}
-             [:span.px-4.py-2.border-2.border-gray-200.rounded.text-sm.font-bold.hover:border-mf-blue.cursor-pointer sz])]]
+             [:span {:class "px-4 py-2 border-2 border-gray-200 rounded text-sm font-bold hover:border-mf-blue cursor-pointer"} sz])]]
          
          [:p.text-gray-700.text-lg.leading-relaxed.mb-12 (:description product)]
          
