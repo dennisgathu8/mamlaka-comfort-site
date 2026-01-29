@@ -20,7 +20,7 @@
       [:div {:class "hidden md:flex gap-8 font-semibold text-gray-700"}
        (for [{:keys [name route]} nav-links]
          ^{:key name}
-         [:a {:class "hover:text-mf-blue" :href (str "#" (name route))} name])]
+         [:a {:class "hover:text-mf-blue" :href (str "#" (clojure.core/name route))} name])]
       
       [:div.flex.items-center.gap-4
        [:a {:class "bg-mf-red text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition-all"
